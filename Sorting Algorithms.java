@@ -1,6 +1,7 @@
 
 public class Sort {
 	
+	//Implementation of insertion sort
 	public static void insertionSort(int[] myArray) {
 		int element = 0;
 		for (int i = 1; i < myArray.length; i++) {
@@ -17,6 +18,7 @@ public class Sort {
 			System.out.print(x + " ");
 		}
 	}
+	//Implementation of Selection Sort
 	public static void selectSort(int[] myArray) {
 		int temp = 0;
 		
@@ -33,6 +35,7 @@ public class Sort {
 			System.out.print(x + " ");
 		}
 	}
+	//Implementation of Bubble Sort
 	public static void bubbleSort(int[] myArray) {
 		int temp = 0;
 		for (int i = 0; i < myArray.length; i++) {
