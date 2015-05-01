@@ -1,6 +1,6 @@
 /*
  * This is a simple implementation of a Linked List data structure.  It currently has the
- * ability to add, delete, find, and print the items in the list.
+ * ability to add, delete, find, reverse and print the items in the list.
  */
 public class MyLinkedList {
 	
@@ -109,5 +109,18 @@ public class MyLinkedList {
 			System.out.println("List is empty!");
 		}
 	}
-
+	
+	public void reverse(MyLinkedList list) {
+		Node left = null;
+		Node current = list.head;
+		Node right;
+		
+		while (current != null) {
+			right = current.nextNode;
+			current.nextNode = left;
+			left = current;
+			current = right;
+		}
+		list.head = left;
+	}
 }
