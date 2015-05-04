@@ -26,6 +26,19 @@ public class ArrayManip {
 		return myArray;
 	}
 	
+	//This method reverses an array.
+	public static int[] reverse(int[] myArray) {
+		int temp;
+		int length = myArray.length;
+		
+		for(int i = 0; i < length/2; i++) {
+			temp = myArray[i];
+			myArray[i] = myArray[length-i-1];
+			myArray[length-i-1] = temp;
+		}
+		return myArray;
+	}
+	
 	//This method will allocate a new array with twice as much space
 	public static int[] allocate(int[] myArray){
 		int[] myArrayb = new int[2 * myArray.length];
