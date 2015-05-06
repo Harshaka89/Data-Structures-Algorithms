@@ -21,57 +21,30 @@ public class MyLinkedList {
 		size++;  //increment size to track number of items in the list
 	}
 	
-	public Node delete(int data) {
-		Node nodeToReturn = null;
-		if (size == 0) { //checks if list is empty
-			System.out.println("List is empty!");
+	public Node deleteData(int data) {
+		Node current = head;
+		if(size == 0) {
+			System.out.println("List is empty!!");
 			return null;
 		}
-		if (size == 1) {
-			nodeToReturn = head;
-			head = null; //deletes the only item in list by setting head and tail to null
-			tail = null; 
-			size--; //decrement count of items in the list
-			return nodeToReturn;
+		if(current.data == data) { //if the data is in the head
+			head = current.next; //set pointer of head to next node deleting it
+			return current; 
 		}
-		
-		//get the node before the one we want to delete
-		Node nodeBeforeNodeToDelete = findNodeBefore(data);
-		//case where we need to delete the head
-		if (nodeBeforeNodeToDelete.data == 0) { 
-			head = head.nextNode;
+		/*
+		 * Checks if next node is null or if it equals node we want to delete
+		 * We then cycle through the list looking for node before the one we want to delete
+		 */
+		while(current.next != null && current.next.data != data) { 
+			current = current.next;
 		}
-		else if (nodeBeforeNodeToDelete!= null) { //runs if a data match was found
-			if (tail.data == data) { //if data in the tail matches
-				nodeBeforeNodeToDelete.nextNode = null; //deletes the node
-				tail = nodeBeforeNodeToDelete; //sets tail to node before the one deleted
-			}
-			else { //if the data doesn't match, go to node after next node
-				nodeBeforeNodeToDelete.nextNode = nodeBeforeNodeToDelete.nextNode.nextNode;
-			}
-			size--; //decrement count after deletion
+		if(current.next == null) { //if next node is null it means item not found so unable to delete
+			return null;
 		}
-
-		return null;
-	}
-	
-	public Node findNodeBefore (int data) {
-		//check the first element for a match
-		if (head.data == data) {
-			return new Node();
-		}
-		//assign node as the iterator
-		Node node = head;
-		
-		//iterate through our linked list
-		while (node.nextNode != null) {
-			if(node.nextNode.data == data) { //checks if next nodes data matches search key
-				return node; //if match is found, return the node before node containing data.
-			}
-			node = node.nextNode; //load the next node
-		}
-		System.out.println(data + " was not found!"); //if no match is found in the list
-		return null;
+		Node prev = current.next; //create second pointer and set it equal to the next node
+		current.next = prev.next; //sets the next link to the one after the next, erasing the data
+		size--;
+		return current;
 	}
 	
 	public Node find(int data) {
