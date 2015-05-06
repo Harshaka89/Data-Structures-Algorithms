@@ -47,6 +47,23 @@ public class MyLinkedList {
 		return current;
 	}
 	
+	public Node deleteNth(int location) { //deletes node from specified location in the list
+		Node current = head;
+		if(location == 1) { //checks if we want to delete first node
+			head = current.next; //deletes first node
+			return current;
+		}
+		for(int i = 0; i < location-2; i++) { //loop to node before node we want to delete
+			current = current.next;
+		}
+		if(current.next == null) { //If item wasn't found then return null
+			return null;
+		}
+		Node prev = current.next; 
+		current.next = prev.next; //delete node
+		return current;
+	}
+	
 	public Node find(int data) {
 		if (head == null) { //Checks if list is empty
 			System.out.println("List is empty!");
