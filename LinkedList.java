@@ -101,15 +101,15 @@ public class MyLinkedList {
 	}
 	
 	public void reverse(MyLinkedList list) {
-		Node left = null;
+		Node prev = null;
 		Node current = list.head;
-		Node right;
+		Node next;
 		
 		while (current != null) {
-			right = current.nextNode;
-			current.nextNode = left;
-			left = current;
-			current = right;
+			next = current.nextNode;
+			current.nextNode = prev;
+			prev = current;
+			current = next;
 		}
 		list.head = left;
 	}
