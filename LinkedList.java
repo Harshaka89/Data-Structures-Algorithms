@@ -15,7 +15,7 @@ public class MyLinkedList {
 			tail = newNode;
 		}
 		else { //if the list isn't empty
-			tail.nextNode = newNode;
+			tail.next = newNode;
 			tail = newNode;  //set tail = to the new node
 		}
 		size++;  //increment size to track number of items in the list
@@ -75,8 +75,8 @@ public class MyLinkedList {
 		}
 		Node myNode = head;
 		
-		while (myNode.nextNode != null) { //loop through the entire list
-			myNode = myNode.nextNode; //load the next node
+		while (myNode.next != null) { //loop through the entire list
+			myNode = myNode.next; //load the next node
 			if (myNode.data == data) { //check to see if it matches search key
 				System.out.println(data + " was found!"); //if it does print results
 				return myNode;
@@ -90,8 +90,8 @@ public class MyLinkedList {
 		if (head != null) { //checks if list is empty
 			Node node = head;
 			System.out.print(node.data + " ");  //prints first item
-			while (node.nextNode != null) {  //loops through remaining items if they exist
-				node = node.nextNode;  //sets node to the next node on each pass
+			while (node.next != null) {  //loops through remaining items if they exist
+				node = node.next;  //sets node to the next node on each pass
 				System.out.print(node.data + " ");  //prints the node
 			}
 		}
@@ -106,8 +106,8 @@ public class MyLinkedList {
 		Node next;
 		
 		while (current != null) {
-			next = current.nextNode;
-			current.nextNode = prev;
+			next = current.next;
+			current.next = prev;
 			prev = current;
 			current = next;
 		}
