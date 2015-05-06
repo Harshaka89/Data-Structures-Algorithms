@@ -29,6 +29,7 @@ public class MyLinkedList {
 		}
 		if(current.data == data) { //if the data is in the head
 			head = current.next; //set pointer of head to next node deleting it
+			size--;
 			return current; 
 		}
 		/*
@@ -51,6 +52,7 @@ public class MyLinkedList {
 		Node current = head;
 		if(location == 1) { //checks if we want to delete first node
 			head = current.next; //deletes first node
+			size--;
 			return current;
 		}
 		for(int i = 0; i < location-2; i++) { //loop to node before node we want to delete
@@ -61,6 +63,7 @@ public class MyLinkedList {
 		}
 		Node prev = current.next; 
 		current.next = prev.next; //delete node
+		size--;
 		return current;
 	}
 	
