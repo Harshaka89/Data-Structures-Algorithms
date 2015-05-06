@@ -89,6 +89,7 @@ public class MyLinkedList {
 		return null;
 	}
 	
+	//prints the items in a linked list iteratively
 	public void traverse() {
 		if (head != null) { //checks if list is empty
 			Node node = head;
@@ -102,7 +103,23 @@ public class MyLinkedList {
 			System.out.println("List is empty!");
 		}
 	}
-	
+	//print a linked list recursively
+	public void recursivePrint(Node current){
+		if(current == null) { //base case tests if node is null
+			return;
+		}
+		System.out.print(current.data + " "); //if not null print data
+		recursivePrint(current.next); //load next element
+	}
+	//Print a linked list in reversed order recursively
+	public void reverseRecursivePrint(Node current) {
+		if(current == null) {
+			return;
+		}
+		reverseRecursivePrint(current.next); //to print reverse order make recursive call before the print
+		System.out.print(current.data + " ");
+	}
+	//Reverses the linked list
 	public void reverse(MyLinkedList list) {
 		Node prev = null;
 		Node current = list.head;
