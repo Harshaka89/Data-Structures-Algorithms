@@ -6,7 +6,10 @@ public class MyLinkedList {
 	
 	Node head, tail;
 	int size = 0;
-
+	
+	/*
+	 *  Methods that add items to the linked list
+	 */
 	public void add(int data) {
 		Node newNode = new Node(data);
 		
@@ -20,7 +23,24 @@ public class MyLinkedList {
 		}
 		size++;  //increment size to track number of items in the list
 	}
+	public void addAtNth(int data, int location){
+		Node newNode = new Node(data);
+		if(location == 1) { //if we insert at location 1
+			newNode.next = head; //set next node to current head
+			head = newNode; //set head to the new node
+			return;
+		}
+		Node temp = head;
+		for(int i = 0; i < location -2; i++) { //go to location 2 before where we want to insert
+			temp = temp.next;
+		}
+		newNode.next = temp.next; //create a link to element after the one we want to insert
+		temp.next = newNode; //creates the link to the element we are inserting
+	}
 	
+	/*
+	 *  Methods that delete items in the linked list
+	 */
 	public Node deleteData(int data) {
 		Node current = head;
 		if(size == 0) {
@@ -66,7 +86,7 @@ public class MyLinkedList {
 		size--;
 		return current;
 	}
-	
+	//Searches for an item in the linked list
 	public Node find(int data) {
 		if (head == null) { //Checks if list is empty
 			System.out.println("List is empty!");
@@ -88,9 +108,10 @@ public class MyLinkedList {
 		System.out.println(data + " was not found!"); //if no match found in the list
 		return null;
 	}
-	
-	//prints the items in a linked list iteratively
-	public void traverse() {
+	/*
+	 *  Methods that print the items in the linked list
+	 */
+	public void traverse() { //prints the items in a linked list iteratively
 		if (head != null) { //checks if list is empty
 			Node node = head;
 			System.out.print(node.data + " ");  //prints first item
@@ -103,16 +124,14 @@ public class MyLinkedList {
 			System.out.println("List is empty!");
 		}
 	}
-	//print a linked list recursively
-	public void recursivePrint(Node current){
+	public void recursivePrint(Node current){ //print a linked list recursively
 		if(current == null) { //base case tests if node is null
 			return;
 		}
 		System.out.print(current.data + " "); //if not null print data
 		recursivePrint(current.next); //load next element
 	}
-	//Print a linked list in reversed order recursively
-	public void reverseRecursivePrint(Node current) {
+	public void reverseRecursivePrint(Node current) { //Print a linked list in reversed order recursively
 		if(current == null) {
 			return;
 		}
