@@ -100,6 +100,7 @@ public class MyLinkedList {
 		while(current != null) {
 			temp = current.next;
 			current = temp;
+			size--;
 		}
 		head = null;
 		System.out.println("List deleted!");
@@ -168,6 +169,22 @@ public class MyLinkedList {
 		}
 		return count;
 	}
+	//Returns the data at the Nth element
+	public void getDataNth( int location) {
+		Node current = head;
+		int count = 0;
+		while(current != null) {
+			count++;
+			if(count == location) {
+				System.out.println(current.data);
+				return;
+			}
+			current = current.next;
+		}
+		System.out.println("Node doesn't exist!!");
+		return;
+	}
+	
 	//Reverses the linked list
 	public void reverse(MyLinkedList list) {
 		Node prev = null;
