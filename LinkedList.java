@@ -145,6 +145,16 @@ public class MyLinkedList {
 		reverseRecursivePrint(current.next); //to print reverse order make recursive call before the print
 		System.out.print(current.data + " ");
 	}
+	//Returns the size of the linked list
+	public int getSize() {
+		Node current = head;
+		int count = 0;
+		while(current != null) {
+			count++;
+			current = current.next;
+		}
+		return count;
+	}
 	//Reverses the linked list
 	public void reverse(MyLinkedList list) {
 		Node prev = null;
@@ -158,5 +168,24 @@ public class MyLinkedList {
 			current = next;
 		}
 		list.head = left;
+	}
+	
+	/*
+	 * Checks to see if there is a cycle in the linked list.  We declare two pointers and they
+	 * traverse the list at two different speeds.  The idea is that if there is a cycle they
+	 * will end up on the same node eventually and it will return true.  If there is no 
+	 * cycly they will return false.
+	 */
+	public boolean hasCyclePointer() {
+		Node pointer1 = head; 
+		Node pointer2 = head;
+		while(pointer2.next != null && pointer2.next.next != null) {
+			pointer1 = pointer1.next; //Speed 1
+			pointer2 = pointer2.next.next; //Speed 2
+			if(pointer1 == pointer2) { //if there is a cycle they will be on the same node
+				return true;
+			}
+		}
+		return false;
 	}
 }
