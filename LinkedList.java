@@ -94,6 +94,18 @@ public class MyLinkedList {
 		size--;
 		return current;
 	}
+	public Node deleteComplete(){ //Deletes entire linked list
+		Node current = head;
+		Node temp;
+		while(current != null) {
+			temp = current.next;
+			current = temp;
+		}
+		head = null;
+		System.out.println("List deleted!");
+		return current;
+	}
+	
 	//Searches for an item in the linked list
 	public Node find(int data) {
 		if (head == null) { //Checks if list is empty
