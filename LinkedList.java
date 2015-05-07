@@ -184,9 +184,10 @@ public class MyLinkedList {
 		System.out.println("Node doesn't exist!!");
 		return;
 	}
-	
-	//Reverses the linked list
-	public void reverse(MyLinkedList list) {
+	/*
+	 *  Methods to reverse a linked list.
+	 */
+	public void reverse(MyLinkedList list) { //Iteratively reverse
 		Node prev = null;
 		Node current = list.head;
 		Node next;
@@ -198,6 +199,16 @@ public class MyLinkedList {
 			current = next;
 		}
 		list.head = left;
+	}
+	public void recursiveReverse(Node current){ //Reverse a linked list recursively
+		if(current.next == null) { //base case
+			head = current;
+			return;
+		}
+		recursiveReverse(current.next); //recursive call
+		Node temp = current.next;
+		temp.next = current;
+		current.next = null;
 	}
 	
 	/*
