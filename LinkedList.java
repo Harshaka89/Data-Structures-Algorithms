@@ -23,6 +23,13 @@ public class MyLinkedList {
 		}
 		size++;  //increment size to track number of items in the list
 	}
+	
+	public void addHead(int data){ //Adds element to the head of a linked list
+		Node newNode = new Node(data);
+		newNode.next = head; //links next node to current head
+		head = newNode; //links head to newNode which adds it to the list.
+	}
+	
 	public void addAtNth(int data, int location){
 		Node newNode = new Node(data);
 		if(location == 1) { //if we insert at location 1
