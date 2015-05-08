@@ -1,6 +1,7 @@
   	/*
 	 * Write a method to reverse a string using a stack.
-	 */	
+	 */
+public class StackProblems{
 	public static String revString(String myString){
 		Stack<Character> myStack = new Stack<Character>();
 		for(int i = 0; i < myString.length(); i++) {
@@ -14,3 +15,4 @@
 		myString = String.valueOf(reverse);
 		return myString;
 	}
+}
