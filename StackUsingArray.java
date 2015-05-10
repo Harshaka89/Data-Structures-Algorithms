@@ -7,7 +7,6 @@ import java.util.NoSuchElementException;
 public class Stack<T> {
 	public int size;
 	public T myStack[];
-	@SuppressWarnings("unchecked")
 	public Stack(){
 		size = 0;
 		myStack = (T[])new Object[100];
@@ -56,7 +55,6 @@ public class Stack<T> {
 		return size;
 	}
 	public void resize(int newSize){
-		@SuppressWarnings("unchecked")
 		T[] temp = (T[]) new Object[newSize];
 		for(int i = 0; i < size; i++){
 			temp[i] = myStack[i];
