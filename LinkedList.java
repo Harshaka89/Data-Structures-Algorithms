@@ -4,6 +4,9 @@
  * in the linked list.
  */
 public class MyLinkedList<T> {
+	/*
+	 *  Nested Node class definition
+	 */
 	public class Node {
 		T data;
 		Node next;
