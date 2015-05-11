@@ -3,15 +3,21 @@
  * ability to add, delete, find, reverse, print, get the size of, and determine if there is a cycle
  * in the linked list.
  */
-public class MyLinkedList {
-	
+public class MyLinkedList<T> {
+	public class Node {
+		T data;
+		Node next;
+		Node(T data){
+			this.data = data;
+		}
+	}
 	Node head, tail;
 	int size = 0;
 	
 	/*
 	 *  Methods that add items to the linked list
 	 */
-	public void add(int data) {
+	public void add(T data) {
 		Node newNode = new Node(data);
 		
 		if (tail == null) {  //checks if the list is empty
@@ -25,13 +31,13 @@ public class MyLinkedList {
 		size++;  //increment size to track number of items in the list
 	}
 	
-	public void addHead(int data){ //Adds element to the head of a linked list
+	public void addHead(T data){ //Adds element to the head of a linked list
 		Node newNode = new Node(data);
 		newNode.next = head; //links next node to current head
 		head = newNode; //links head to newNode which adds it to the list.
 	}
 	
-	public void addAtNth(int data, int location){
+	public void addAtNth(T data, int location){
 		Node newNode = new Node(data);
 		if(location == 1) { //if we insert at location 1
 			newNode.next = head; //set next node to current head
@@ -49,13 +55,13 @@ public class MyLinkedList {
 	/*
 	 *  Methods that delete items in the linked list
 	 */
-	public Node deleteData(int data) {
+	public Node deleteData(T data) {
 		Node current = head;
 		if(size == 0) {
 			System.out.println("List is empty!!");
 			return null;
 		}
-		if(current.data == data) { //if the data is in the head
+		if(current.data.equals(data)) { //if the data is in the head
 			head = current.next; //set pointer of head to next node deleting it
 			size--;
 			return current; 
@@ -64,7 +70,7 @@ public class MyLinkedList {
 		 * Checks if next node is null or if it equals node we want to delete
 		 * We then cycle through the list looking for node before the one we want to delete
 		 */
-		while(current.next != null && current.next.data != data) { 
+		while(current.next != null && current.next.data.equals(data) == false) { 
 			current = current.next;
 		}
 		if(current.next == null) { //if next node is null it means item not found so unable to delete
@@ -108,22 +114,22 @@ public class MyLinkedList {
 	}
 	
 	//Searches for an item in the linked list
-	public Node find(int data) {
+	public Node find(T data) {
 		if (head == null) { //Checks if list is empty
 			System.out.println("List is empty!");
 			return null;
 		}
-		if (head.data == data) { //if data found in first node
+		if (head.data.equals(data)) { //if data found in first node
 			System.out.println(data + " was found!");
 			return head;
 		}
-		Node myNode = head;
+		Node current = head;
 		
-		while (myNode.next != null) { //loop through the entire list
-			myNode = myNode.next; //load the next node
-			if (myNode.data == data) { //check to see if it matches search key
+		while (current.next != null) { //loop through the entire list
+			current = current.next; //load the next node
+			if (current.data.equals(data)) { //check to see if it matches search key
 				System.out.println(data + " was found!"); //if it does print results
-				return myNode;
+				return current;
 			}
 		}
 		System.out.println(data + " was not found!"); //if no match found in the list
@@ -198,7 +204,7 @@ public class MyLinkedList {
 			prev = current;
 			current = next;
 		}
-		list.head = left;
+		list.head = prev;
 	}
 	public void recursiveReverse(Node current){ //Reverse a linked list recursively
 		if(current.next == null) { //base case
