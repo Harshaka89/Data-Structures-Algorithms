@@ -4,6 +4,9 @@
  * in the linked list.
  */
 public class MyLinkedList<T> {
+	Node head, tail;
+	int size = 0;
+	
 	/*
 	 *  Nested Node class definition
 	 */
@@ -14,8 +17,6 @@ public class MyLinkedList<T> {
 			this.data = data;
 		}
 	}
-	Node head, tail;
-	int size = 0;
 	
 	/*
 	 *  Methods that add items to the linked list
