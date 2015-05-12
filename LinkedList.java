@@ -39,6 +39,9 @@ public class MyLinkedList<T> {
 		Node newNode = new Node(data);
 		newNode.next = head; //links next node to current head
 		head = newNode; //links head to newNode which adds it to the list.
+		if(tail == null){
+			tail = newNode;
+		}
 	}
 	
 	public void addAtNth(T data, int location){
