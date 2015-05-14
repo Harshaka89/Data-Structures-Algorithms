@@ -42,6 +42,7 @@ public class MyLinkedList<T> {
 		if(tail == null){
 			tail = newNode;
 		}
+		size++;
 	}
 	
 	public void addAtNth(T data, int location){
