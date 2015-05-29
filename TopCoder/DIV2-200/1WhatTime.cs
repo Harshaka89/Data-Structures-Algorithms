@@ -5,6 +5,7 @@
  * since midnight, <M> represents the number of complete minutes since the last complete hour ended, and <S> represents the number
  * of seconds since the last complete minute ended. Each of <H>, <M>, and <S> should be an integer, with no extra leading 0's. Thus,
  * if seconds is 0, you should return "0:0:0", while if seconds is 3661, you should return "1:1:1".
+ * Constraints:  Seconds must be >= 0 and <= 86399
  */
 
 using System;
@@ -19,7 +20,7 @@ namespace TopCoder
     {
         public String whatTime(int seconds)
         {
-            if (seconds < 0)
+            if (seconds < 0) 
             {
                 seconds = 0;
             }
