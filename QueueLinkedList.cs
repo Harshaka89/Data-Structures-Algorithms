@@ -44,11 +44,11 @@ namespace DataStructures
         {
             Object deletedData = first.data;
             first = first.next;
+            size--;
             if(size == 0)
             {
                 last = null;
             }
-            size--;
             return deletedData;
         }
         public void printQueue()
