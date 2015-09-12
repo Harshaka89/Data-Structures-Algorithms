@@ -1,3 +1,8 @@
+/*
+ * This is a simple implementation of a Linked List data structure.  It currently has the
+ * ability to add, delete, find, reverse, print, get the size of, and determine if there is a cycle
+ * in the linked list. linkedlist
+ */
 public class MyLinkedList<T> {
 	public class Node<T>{
 		T data;
