@@ -15,7 +15,7 @@ public class Search {
 		int low = 0, high = myArray.length-1;
 		
 		while (low <= high) {
-			int mid = (low + high) / 2;
+			int mid = low + (high - low) / 2;
 			
 			if (myArray[mid] == key) {
 				System.out.println(key + " was found!");
