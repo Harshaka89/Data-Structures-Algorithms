@@ -13,8 +13,8 @@ public class QuickSort {
 		int temp;
 		int piv = A[start]; //Set first element as pivot
 		for(int j = start + 1; j <= end; j++){
-			if(A[j] < piv){ //Rearrange array by putting elements which are less than pivot on one side and greater on the other
-				temp = A[i];
+			if(A[j] < piv){ //Rearrange array by putting elements which are less than pivot 
+				temp = A[i]; //on one side and greater than on the other
 				A[i] = A[j];
 				A[j] = temp;
 				i++;
