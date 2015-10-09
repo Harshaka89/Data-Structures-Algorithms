@@ -79,7 +79,7 @@ public class HashTableChain<Key, Value> {
 	}
 	/*The Hash Method*/
 	private int hash(Key key){
-		return (key.hashCode() & 0x7777777) % M;
+		return (key.hashCode() & 0x7fffffff) % M;
 	}
 	/*Get method will return value associated with key if it exists, null if it doesnt*/
 	public Value get(Key key){
