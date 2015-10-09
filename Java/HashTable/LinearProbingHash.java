@@ -73,7 +73,7 @@ public class HashTableLinearProbe<Key, Value> {
 			Value valToRehash = vals[i];
 			keys[i] = null;
 			vals[i] = null;
-			N--; //Decriment count for each
+			N--; //Decrement count for each
 			put(keyToRehash, valToRehash);
 			i = (i + 1) % M;
 		}
