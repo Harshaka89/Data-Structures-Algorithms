@@ -140,7 +140,8 @@ public class HashTableChain<Key, Value> {
 		return Size() == 0;
 	}
 	
-	/*Main method for testing*/
+	
+	/***Main method for testing***/
 	public static void main(String[] args){
 		HashTableChain<String, Integer> hash = new HashTableChain<String, Integer>();
 		hash.put("one", 1);
