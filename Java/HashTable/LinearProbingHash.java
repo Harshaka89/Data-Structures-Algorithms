@@ -1,4 +1,4 @@
-/*  DESCRIPTION: Implementation of a HashTable that uses LinearProbings to avoid collisions.
+/*  DESCRIPTION: Implementation of a HashTable that uses LinearProbing to avoid collisions.
 */
 import java.util.LinkedList;
 import java.util.Queue;
