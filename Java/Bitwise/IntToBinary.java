@@ -11,7 +11,7 @@ public class Test {
 			binary = num%2 + binary; //Take remainder and create binary string
 			num = num/2; 
 		}
-		binary = num%2 + binary;
-		System.out.println(binary); //Loop exits before final update so append last binary digit
+		binary = num%2 + binary; //Loop exits before final update so append last binary digit
+		System.out.println(binary); 
 	}
 }
