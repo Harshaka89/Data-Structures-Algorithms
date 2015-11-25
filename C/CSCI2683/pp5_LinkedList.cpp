@@ -55,7 +55,7 @@ public:
         return false;
     }
 };
-int main2(int argc, char *argv[]) {
+int main(int argc, char *argv[]) {
     MyLinkedList myList;
     int choice;
     int num;
