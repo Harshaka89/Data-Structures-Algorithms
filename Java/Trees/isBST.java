@@ -9,14 +9,17 @@
     and root.right pointers reach null at the end of the tree.
 */  
 
-  public boolean isBST(Node root, int min, int max) {
-      if (root != null) {
-          if (root.data > max || root.data < min) {
-              return false;
-          }
-          return isBST(root.left, min, root.data) && isBST(root.right, root.data, max);
-       } 
-       else {
-          return true;
-      }
-  }
+public class Solution {
+    public boolean isBST(TreeNode root) {
+        return isValidBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+    public boolean isBST(TreeNode current, Integer min, Integer max){
+        if(current == null){
+            return true;
+        }
+        if(current.val < min || current.val > max){
+            return false;
+        }
+        return (isBST(current.left, min, current.val-1) && isBST(current.right, current.val+1, max));
+    }
+}
