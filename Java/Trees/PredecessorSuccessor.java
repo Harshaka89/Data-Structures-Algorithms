@@ -1,3 +1,6 @@
+/*
+DESCRIPTION:  This program locates the predecessor and successor in a BST. 
+*/
 public void getPreSucc(Key key){
 		Node predecessor = null;
 		Node successor = null;
