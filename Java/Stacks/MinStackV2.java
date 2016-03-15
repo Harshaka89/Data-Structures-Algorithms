@@ -1,3 +1,6 @@
+/*DESCRIPTION:  Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+  NOTE: This version is done WITH the Java library.
+*/
 class MinStack {
     Stack<Integer> stack = new Stack<Integer>();
     Stack<Integer> min = new Stack<Integer>();
