@@ -1,3 +1,6 @@
+/*DESCRIPTION:  Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+  NOTE: This version is done without the Java library.
+*/
 class MinStack {
     public class Node{
         int data;
