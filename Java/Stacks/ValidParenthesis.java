@@ -4,20 +4,25 @@ public class Solution {
         if(s.length()%2 != 0){
             return false;
         }
-        if(s.charAt(0) == ')' || s.charAt(0) == '}' || s.charAt(0) == ']'){
-            return false;
-        }
+
         for(int i = 0; i < s.length(); i++){
-            Character x = s.charAt(i);
-            switch(x){
+            Character choice = s.charAt(i);
+            
+            if(stack.isEmpty()){
+	            if(choice == '}' || choice == ')' || choice == ']'){
+	                return 0;
+    	        }
+	        }
+	        
+            switch(choice){
                 case '(':
-                    stack.add(x);
+                    stack.add(choice);
                     break;
                 case '{':
-                    stack.add(x);
+                    stack.add(choice);
                     break;
                 case '[':
-                    stack.add(x);
+                    stack.add(choice);
                     break;
                 case ')':
                     if(stack.peek() == '('){
