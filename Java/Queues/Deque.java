@@ -60,7 +60,7 @@ public class MyDeque<T> {
 			throw new NoSuchElementException();
 		}
 		if(size == 1){
-			removeFirst();
+			return removeFirst();
 		}
 		T value = (T)tail.data;
 		Node newTail = tail.prev; //hold pointer to node before tail which will become the new tail
