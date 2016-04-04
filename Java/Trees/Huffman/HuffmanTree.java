@@ -50,7 +50,8 @@ public class HuffmanTree {
 		while(queue.size() > 1){ //While there is more than one element in the queue
 			left = queue.poll();  //Pop off the two smallest frequency Nodes 
 			right = queue.poll();
-			top = new Node('~', left.frequency + right.frequency); //Creates internal node;  '~' is a value for internal nodes that arent used
+			top = new Node('~', left.frequency + right.frequency); //Creates internal node;  
+			//'~' is a value for internal nodes that arent used
 			top.left = left; //Set the two smallest frequency nodes as left and right children of the internal node
 			top.right = right;
 			queue.add(top); //Add the top node to the priorityqueue
