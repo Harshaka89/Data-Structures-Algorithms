@@ -18,7 +18,7 @@ namespace TopCoder
 {
     class Time
     {
-        public String whatTime(int seconds)
+        public string whatTime(int seconds)
         {
             if (seconds < 0) 
             {
@@ -28,15 +28,9 @@ namespace TopCoder
             {
                 seconds = 86399;
             }
-
             TimeSpan t = TimeSpan.FromSeconds(seconds);
-            String output = String.Format("{0:D1}:{1:D1}:{2:D1}",t.Hours,t.Minutes,t.Seconds);
+            string output = string.Format("{0:D1}:{1:D1}:{2:D1}",t.Hours,t.Minutes,t.Seconds);
             return output;
-        }
-        public static void Main(String[] args)
-        {
-            Time test = new Time();
-            Console.WriteLine(test.whatTime(3661));
         }
     }
 }
