@@ -4,7 +4,6 @@ public class Solution {
         public static int parseInt(String num)
         {
             int sum = 0;
-         
             foreach(char c in num){
                 int digit = c - '0';
                 sum = (sum * 10) + digit;
