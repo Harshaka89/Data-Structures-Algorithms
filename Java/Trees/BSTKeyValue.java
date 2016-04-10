@@ -1,5 +1,5 @@
 /*
-  Description: Implementation of a binary search tree in Java.
+  Description: Implementation of a binary search tree in Java useing Key-Value pairs.
 */
 import java.util.NoSuchElementException;
 
