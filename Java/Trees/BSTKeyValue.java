@@ -55,6 +55,7 @@ public class BST<Key extends Comparable<Key>, T> {
 		}
 		else{ //if key passed in is equal to the current node, update it with the new value
 			current.data = value;
+			return current;
 		}
 		//Get the count from left of tree and right of tree and increment by one for the new node.
 		current.size = Size(current.left) + Size(current.right) + 1; 
