@@ -41,7 +41,7 @@ namespace DataStructures
         // Kills/Switches off the Kth bit
         public static int killKthBit(int n, int k)
         {
-          return (n & ~(1 << (k - 1)));;
+          return (n & ~(1 << (k - 1)));
         }
     }
 }
