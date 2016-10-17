@@ -30,5 +30,18 @@ namespace DataStructures
             }
             return x;
         }
+        //Packs multiple numbers into a single number;
+        public static int arrayPacking(int[] a) {
+            int M = 0;
+            for(int i = 0; i < a.Length; i++){
+                M |= a[i] << (8 * i);
+            }
+            return M;
+        }
+        // Kills/Switches off the Kth bit
+        public static int killKthBit(int n, int k)
+        {
+          return (n & ~(1 << (k - 1)));;
+        }
     }
 }
