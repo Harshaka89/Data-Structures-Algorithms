@@ -30,16 +30,35 @@ namespace ITMO
             Array.Sort(P2);
             Array.Sort(T2);
             int L = P2.Length;
+            int index1 = -1;
+            int index2 = -1;
             if (Array.IndexOf(P, P2[L - 1]) != Array.IndexOf(T, T2[L - 1])) {
                 sum += P2[L - 1] + T2[L - 1];
+                index1 = Array.IndexOf(P, P2[L - 1]);
+                index2 = Array.IndexOf(T, T2[L - 1]);
             }
             else if (P2[L - 1] > T2[L - 1]) {
                 sum += P2[L - 1] + T2[L - 2];
+                index1 = Array.IndexOf(P, P2[L - 1]);
+                index2 = Array.IndexOf(T, T2[L - 2]);
             }
             else {
                 sum += T2[L - 1] + P2[L - 2];
+                index1 = Array.IndexOf(P, P2[L - 2]);
+                index2 = Array.IndexOf(T, T2[L - 1]);
             }
-            //Console.WriteLine(sum);
+            for (int i = 0; i < P2.Length-2; i++) {
+                if (i == index1 || i == index2) {
+                    continue;
+                }
+                if (P[i] > T[i]) {
+                    sum += P[i];
+                }
+                else {
+                    sum += T[i];
+                }
+            }
+            Console.WriteLine(sum);
 
             System.IO.File.WriteAllText("prepare.out", sum + "");
 
