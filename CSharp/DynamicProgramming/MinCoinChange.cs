@@ -1,41 +1,28 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Collections;
-using System.IO;
-
-namespace ITMO {
-    class Program {
-        public static int minCoins(int[] coins, int N, int V) {
-            int[] table = new int[V + 1];
-            table[0] = 0; //If V is 0 this will be base case
-            for (int i = 1; i <= V; i++) { //Initially sets all values in the table to MaxValue
-                table[i] = int.MaxValue;
-            }
-            for (int i = 1; i <= V; i++) {
-                for (int j = 0; j < N; j++) {
-                    if (coins[j] <= i) {
-                        int temp = table[i - coins[j]];
-                        if (temp != int.MaxValue && temp + 1 < table[i]) {
-                            table[i] = temp + 1;
-                        }
-                    }
+/* DESCRIPTION:  You are given coins of different denominations and a total amount of money amount. Write a function 
+to compute the fewest number of coins that you need to make up that amount. If that amount of money cannot be made 
+up by any combination of the coins, return -1.  You may assume that you have an infinite number of each kind of coin.
+*/
+public class Solution {
+    public int CoinChange(int[] coins, int amount) {
+        int[] M = new int[amount + 1];  
+        int[] C = new int[amount + 1];
+        for(int i = 1; i <= amount; i++){
+            M[i] = int.MaxValue-1;
+            C[i] = -1;
+        }
+        for(int i = 0; i < coins.Length; i++){
+            for(int j = coins[i]; j <= amount; j++){
+                if(M[j] > 1 + M[j - coins[i]]){
+                    M[j] = 1 + M[j - coins[i]];
+                    C[j] = i; 
                 }
             }
-            foreach (int x in table) {
-                Console.Write(x + " ");
-            }
-            Console.WriteLine();
-            return table[V];
         }
-        static void Main(string[] args) {
-            int[] coins = { 9, 6, 5, 1 };
-            int V = 11;
-            int N = coins.Length;
-            Console.WriteLine("ANSWER: " + minCoins(coins, N, V));
+        if(C[amount] == -1){
+            return -1;
         }
-    }  
+        else{
+            return M[amount];
+        }
+    }
 }
