@@ -13,12 +13,12 @@ public class Solution {
         }
         for(int i = 1; i <= word1.Length; i++){
             for(int j = 1; j <= word2.Length; j++){
-                if(word1[i-1] == word2[j-1]){
+                if(word1[i-1] == word2[j-1]){ //if characters are the same get the diagonal value
                     DP[i,j] = DP[i-1,j-1];
                 }
-                else{
+                else{ //if not equal then get the min of the ones to the left, diagonal, and top.  Then add 1.
                     DP[i,j] = Math.Min(DP[i-1,j-1], DP[i,j-1]);
-                    DP[i,j] = 1 + Math.Min(DP[i,j], DP[i-1,j]);
+                    DP[i,j] = 1 + Math.Min(DP[i,j], DP[i-1,j]); //Math.Min cant take 3 arguments so requires two compares
                 }
             }
         }
