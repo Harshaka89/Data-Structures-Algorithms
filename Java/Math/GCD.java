@@ -6,6 +6,10 @@ public class GCD {
 		long R = A % B; //Calculate the remainder of A/B
 		return gcd(B, R); //Return B to divide it by the remainder
 	}
+	//Method to find the lowest common multiple
+	public static long lcm(long A, long B){
+		return A * (B / GCD(A, B));
+	}
 	public static void main(String[] args){
 		System.out.println(gcd(3918848, 1653264));
 	}
